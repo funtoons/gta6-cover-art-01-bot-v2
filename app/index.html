@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Lights Cover Atelier — GTA-style cover art maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover editor">
+    <h1>Vice Lights <span>Cover Atelier</span></h1>
+    <p class="tagline">Turn your photos into bold multi-panel poster art. Everything stays in your browser — nothing is uploaded.</p>
+
+    <fieldset>
+      <legend>1 · Photos</legend>
+      <label class="file-label">Upload up to 4 photos
+        <input id="photoInput" type="file" accept="image/*" multiple>
+      </label>
+      <div class="row">
+        <button id="sample-boulevard" type="button">Boulevard sample</button>
+        <button id="sample-pier" type="button">Pier sample</button>
+        <button id="sample-both" type="button">Load both samples</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · One-click templates</legend>
+      <div id="templateRow" class="chips" role="group" aria-label="Cover templates"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Layout</legend>
+      <div id="layoutRow" class="chips" role="group" aria-label="Panel layouts"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Colour grade</legend>
+      <div id="gradeRow" class="chips" role="group" aria-label="Colour grades"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>5 · Lettering</legend>
+      <div id="letteringRow" class="chips" role="group" aria-label="Lettering styles"></div>
+      <div id="colourRow" class="chips" role="group" aria-label="Title colours"></div>
+      <label>Title <input id="title" type="text" maxlength="32" value="Neon Nights"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="Downtown After Dark"></label>
+      <label>Footer line <input id="footer" type="text" maxlength="48" value="VICE LIGHTS • EST. 2026"></label>
+      <label>Title size <input id="titleSize" type="range" min="56" max="150" value="96"></label>
+      <label>Title position
+        <select id="titlePos">
+          <option value="bottom">Bottom</option>
+          <option value="top">Top</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>6 · Selected panel</legend>
+      <label>Panel
+        <select id="panelSelect"></select>
+      </label>
+      <label>Photo in this panel
+        <select id="panelPhoto"></select>
+      </label>
+      <label>Zoom <input id="zoom" type="range" min="0.5" max="3" step="0.05" value="1"></label>
+      <label>Tilt <input id="tilt" type="range" min="-12" max="12" step="1" value="0"></label>
+      <label class="check"><input id="fitToggle" type="checkbox" checked> Fit whole photo (never crops a face)</label>
+      <label class="check"><input id="flipToggle" type="checkbox"> Flip horizontal</label>
+      <p class="hint">Drag the preview to pan the selected panel; scroll over it to zoom.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>7 · Frame &amp; export</legend>
+      <div id="frameRow" class="chips" role="group" aria-label="Frame styles"></div>
+      <div class="row">
+        <button id="export-0" type="button" class="export">PNG 1080 × 1080</button>
+        <button id="export-1" type="button" class="export">PNG 1080 × 1350</button>
+        <button id="export-2" type="button" class="export">PNG 1920 × 1080</button>
+      </div>
+    </fieldset>
+
+    <p id="status" role="status">Loading samples…</p>
+  </section>
+
+  <section class="stage" aria-label="Live preview">
+    <canvas id="preview" width="1080" height="1080" aria-label="Live cover preview"></canvas>
+    <p class="stage-note">Live preview — drag to pan, scroll to zoom the selected panel.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

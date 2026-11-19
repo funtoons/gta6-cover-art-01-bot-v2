@@ -1,0 +1,42 @@
+/* Vice Lights Cover Atelier — dark editor, neon accent, clean panels.
+   No external fonts or images: system stacks only, all art drawn on canvas. */
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #12082a; color: #f4eefc; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 24px; }
+.controls { width: 360px; flex: none; display: flex; flex-direction: column; gap: 14px; }
+.controls h1 { margin: 0; font-size: 30px; line-height: 1.05; letter-spacing: -0.5px; }
+.controls h1 span { display: block; background: linear-gradient(90deg, #ffe259, #ff2fb3, #00e5ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tagline { margin: 0; color: #c9b8e8; }
+fieldset { border: 1px solid #3a2358; border-radius: 12px; padding: 12px; margin: 0; background: #1b0f33; }
+legend { font-weight: 800; font-size: 13px; letter-spacing: 0.4px; color: #ffd166; padding: 0 6px; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; margin-top: 8px; }
+label:first-child { margin-top: 0; }
+label.check { flex-direction: row; align-items: center; gap: 8px; font-weight: 500; }
+input[type=text], select { font: inherit; padding: 9px 10px; border: 1px solid #4a2f6e; border-radius: 8px; background: #241344; color: #f4eefc; }
+input[type=range] { width: 100%; accent-color: #ff2fb3; }
+.file-label { cursor: pointer; }
+input[type=file] { font: inherit; }
+button { font: inherit; font-weight: 700; padding: 9px 12px; border: 1px solid #4a2f6e; border-radius: 8px; background: #2a1850; color: #f4eefc; cursor: pointer; }
+button:hover { border-color: #ff2fb3; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #00e5ff; outline-offset: 2px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.row button { flex: 1 1 auto; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { padding: 7px 10px; font-size: 13px; border-radius: 999px; }
+.chip.active { background: #ff2fb3; border-color: #ff2fb3; color: #fff; }
+.export { background: linear-gradient(90deg, #ff2fb3, #ff7e3d); border: 0; }
+.hint, .stage-note { margin: 4px 0 0; color: #b9a6d8; font-size: 13px; }
+#status { margin: 0; padding: 10px 12px; border-radius: 8px; background: #241344; color: #ffe259; font-weight: 600; }
+.stage { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+#preview { width: min(72vh, 62vw); height: auto; max-height: 82vh; object-fit: contain; border-radius: 6px; box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55); cursor: grab; background: #160a2e; }
+#preview:active { cursor: grabbing; }
+body.shot-cover .controls, body.shot-cover .stage-note { display: none; }
+body.shot-cover .app { padding: 0; }
+body.shot-cover .stage { position: static; }
+body.shot-cover #preview { width: 100vw; height: 100vh; max-height: none; border-radius: 0; box-shadow: none; object-fit: fill; }
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .controls { width: 100%; }
+  .stage { position: static; }
+  #preview { width: 100%; }
+}
